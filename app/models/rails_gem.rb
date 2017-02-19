@@ -1,0 +1,2 @@
+class RailsGem < ApplicationRecord
+end
