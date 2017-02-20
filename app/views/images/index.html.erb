@@ -1,0 +1,15 @@
+<h1>Add new image</h1>
+<%= form_tag("/images", method: "post") do %>
+  <%= file_field_tag(:image)%>
+  <%= submit_tag("Add image") %>
+<% end %>
+
+<h1>List of images</h1>
+<ul class="row" id="images-list">
+  <% @images.each do |image| %>
+    <li class="col-xs-3">
+      <%= link_to image_tag(image.image.thumb('100x100#').url, class: 'img-thumbnail'),
+                  image.image.remote_url, target: '_blank' %>
+    </li>
+  <% end %>
+</ul>
