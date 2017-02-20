@@ -1,6 +1,9 @@
+require 'digest'
 class CheckVersion
   include Sidekiq::Worker
-  def perform(version)
-    puts RailsGem.find_by(version: version).sha
+  sidekiq_options queue: 'rubygems', :retry => false
+  def perform(id, sha)
+  	rails_gem = RailsGem.find(id)
+	rails_gem.check_version!
   end
 end

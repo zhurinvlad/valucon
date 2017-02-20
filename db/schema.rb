@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20170219135910) do
     t.string "version",  limit: 20
     t.string "gem_copy"
     t.string "sha"
+    t.index ["version"], name: "index_rails_gems_on_version"
   end
 
 end
