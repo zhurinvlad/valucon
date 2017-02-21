@@ -12,9 +12,9 @@ Dragonfly.app.configure do
   #           root_path: Rails.root.join('public/dragonfly', Rails.env),
   #           server_root: Rails.root.join('public')
   datastore :s3,
-            bucket_name: 'NAME',
-            access_key_id: 'KEY',
-            secret_access_key: 'KEY',
+            bucket_name: 'vczhurin',
+            access_key_id: 'AKIAJKQG5N7EHWB5IBEA',
+            secret_access_key: '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',
 
             region: 'us-west-2',
             fog_storage_options: {path_style: true}

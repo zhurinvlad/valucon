@@ -40,7 +40,7 @@ class RailsGem < ApplicationRecord
 	end
 
 	def self.download(version, sha)
-		path_file = "#{Dir.pwd}/valucon_zhurin/rails-#{version}.gem"
+		path_file = "#{Dir.pwd}/valucon_downloads/rails-#{version}.gem"
 		File.open(path_file, "wb") do |file|
 		  file.write open("#{RUBYGEMS_URL}/gems/rails-#{version}.gem").read
 		end
