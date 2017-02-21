@@ -31,7 +31,15 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+gem 'dragonfly'
+gem 'dragonfly-s3_data_store'
+gem 'bootstrap-sass'
+group :production do
+  gem 'rack-cache', :require => 'rack/cache'
+end
 gem 'sidekiq', '>= 4.2.9'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
