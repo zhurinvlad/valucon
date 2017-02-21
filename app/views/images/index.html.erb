@@ -4,12 +4,12 @@
     <div class="col-lg-4 col-lg-offset-4">
   <%= form_tag({method: "post"}, multipart: true) do %>
     <%= file_field_tag(:image, class: "form-control")%>
-    <span class="input-group-btn">
-      <%= submit_tag("Add image", class: "btn btn-default") %>
-    </span>
+    <br>
+    <%= submit_tag("Add image", class: "btn btn-default") %>
   <% end %>
   </div> </div>
 </div>
+<br>
 <div class="text-center">
   <h1>List of images</h1>
 </div>

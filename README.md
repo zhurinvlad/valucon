@@ -6,4 +6,4 @@ application up and running.
 Things you may want to cover:
 
 * sudo brew install imagemagick
-* Example: http://joxi.ru/gmv950bfPZKzra
+* Example: http://joxi.ru/Q2KBaRLtx3Lxmj
