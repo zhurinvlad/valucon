@@ -4,18 +4,13 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = Image.new(image_params)
-    if @image.save
-      flash[:success] = "Image saved!"
-	else
-      flash[:error] = "Image not saved!"
-    end
+    @image = Image.create(image_params)
     redirect_to images_path
   end
 
   private
 
   def image_params
-    params.require(:image).permit(:image)
+    params.permit(:image)
   end
 end

@@ -8,14 +8,16 @@ Dragonfly.app.configure do
 
   url_format "/media/:job/:name"
 
-	  # datastore :file,
-	  #           root_path: Rails.root.join('public/system/dragonfly', Rails.env),
-	  #           server_root: Rails.root.join('public')
+  # datastore :file,
+  #           root_path: Rails.root.join('public/dragonfly', Rails.env),
+  #           server_root: Rails.root.join('public')
   datastore :s3,
-            bucket_name: 'YOUR_BUCKET_NAME',
-            access_key_id: 'YOUR_S3_KEY',
-            secret_access_key: 'YOUR_S3_SECRET',
-            url_scheme: 'https'
+            bucket_name: 'NAME',
+            access_key_id: 'KEY',
+            secret_access_key: 'KEY',
+
+            region: 'us-west-2',
+            fog_storage_options: {path_style: true}
 end
 
 # Logger
