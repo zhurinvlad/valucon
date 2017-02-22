@@ -39,7 +39,7 @@ group :production do
   gem 'rack-cache', :require => 'rack/cache'
 end
 gem 'sidekiq', '>= 4.2.9'
-
+gem 'rack-cors'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

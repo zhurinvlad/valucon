@@ -7,24 +7,22 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!--<script>-->
+    <!--function show(btn) {-->
+      <!--textarea = document.getElementById('feedback-form')-->
+      <!--if (btn.classList.contains('active')) {-->
+        <!--textarea.style.display = 'none';-->
+        <!--btn.classList.remove("active");-->
+        <!--adjustHeight(textarea);-->
+      <!--} else {-->
+        <!--btn.classList.add("active");-->
+        <!--textarea.style.display = 'block';-->
+        <!--adjustHeight(textarea);-->
+      <!--}-->
+    <!--}-->
+  <!--</script>-->
 </head>
 <body>
-<div class="container jumbotron">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <form >
-        <div class="form-group">
-          <label for="email">Email address:</label>
-          <input type="email" class="form-control" id="email">
-        </div>
-        <div class="form-group">
-          <label for="msg">Message:</label>
-          <textarea class="form-control" rows="5" id="msg"></textarea>
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-    </div>
-  </div>
-</div>
+<fa-feedback></fa-feedback>
 </body>
 </html>
