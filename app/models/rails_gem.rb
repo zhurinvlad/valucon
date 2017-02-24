@@ -4,7 +4,7 @@ class RailsGem < ApplicationRecord
 	# TODO: Checks
 	def check_version!(sha)
 		begin
-			raise CustomError::GemFileNotExist unless File.exists?(self.gem_copy)
+			raise CustomError::GemFileNotExist unless File.exist?(self.gem_copy)
 			
 			digest = Digest::SHA256.new
 			file_sha = digest.file(self.gem_copy).hexdigest
@@ -12,13 +12,12 @@ class RailsGem < ApplicationRecord
 			raise CustomError::BadVersionSHA unless file_sha == sha && sha == self.sha
 		rescue
 			# MY RECIPE(without update) Delete bad files, that next download actuality version
-			File.delete(self.gem_copy) if File.exists?(self.gem_copy)
+			File.delete(self.gem_copy) if File.exist?(self.gem_copy)
 			self.destroy!
 			DownloadVersion.perform_async(self.version, sha)
 		end
 	end
 
-	private
 	def self.check_all_versions
 		# RailsGem.delete_all
 	  	

@@ -20,7 +20,6 @@ class TrelloApi
     return code, body
 	end
 
-	private
 	def self.read_auth_data
 		path_file = "#{ENV['HOME']}/.trellorc"
 		
@@ -33,7 +32,7 @@ class TrelloApi
 
 		raise 'Not all parameters for auth are specified' if data['developer_public_key'].nil? || data['member_token'].nil?
 		
-		auth_data = {
+		return {
 			key: data['developer_public_key'],
 			token: data['member_token']
 		}

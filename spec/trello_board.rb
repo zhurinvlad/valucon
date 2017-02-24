@@ -14,7 +14,7 @@ RSpec.describe TrelloBoard do
     expect(code).not_to eq(200)
   end
 
-	it "File with auth params not exist!" do
+  it "File with auth params not exist!" do
 		ENV['HOME'] = SecureRandom.hex
     new_board = proc{ TrelloBoard.new(board_id: '58b0667f928fa53177194eba').create_card!(title: 'asd', description: 'aaaaaa') }
 
