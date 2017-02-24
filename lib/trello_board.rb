@@ -13,9 +13,11 @@ class TrelloApi
     request.set_form_data(data.merge!(self.read_auth_data))
 
     response = http.request(request)
-    json_body = JSON.parse(response.body)
+    
+    code = response.code.to_i
+		body = code == 200 ? JSON.parse(response.body) : response.body
 
-    return response.code.to_i, json_body
+    return code, body
 	end
 
 	private
@@ -54,9 +56,11 @@ class TrelloBoard
 		code, body = TrelloApi.send_post_request('/cards', data)
 
 		if code == 200
-			"Successful created! URL = #{body['url']}"
+			puts "Successful created! URL = #{body['url']}"
 		else
-			"Error create! Error = #{body}"
+			puts "Error create! Error = #{body}"
 		end
+
+		code
 	end
 end
