@@ -39,13 +39,14 @@ group :production do
   gem 'rack-cache', :require => 'rack/cache'
 end
 gem 'sidekiq', '>= 4.2.9'
-
+gem 'rack-cors'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do

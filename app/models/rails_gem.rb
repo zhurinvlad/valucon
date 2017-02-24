@@ -2,7 +2,7 @@ require 'custom_error'
 class RailsGem < ApplicationRecord
 	RUBYGEMS_URL = 'https://rubygems.org'
 	# TODO: Checks
-	def check_version!
+	def check_version!(sha)
 		begin
 			raise CustomError::GemFileNotExist unless File.exists?(self.gem_copy)
 			
@@ -11,9 +11,10 @@ class RailsGem < ApplicationRecord
 
 			raise CustomError::BadVersionSHA unless file_sha == sha && sha == self.sha
 		rescue
-			# MY RECIPE(without update) Delete bad files now. That next rake task download actuality version 
+			# MY RECIPE(without update) Delete bad files, that next download actuality version
 			File.delete(self.gem_copy) if File.exists?(self.gem_copy)
 			self.destroy!
+			DownloadVersion.perform_async(self.version, sha)
 		end
 	end
 
@@ -40,7 +41,7 @@ class RailsGem < ApplicationRecord
 	end
 
 	def self.download(version, sha)
-		path_file = "#{Dir.pwd}/valucon_zhurin/rails-#{version}.gem"
+		path_file = "#{Dir.pwd}/valucon_downloads/rails-#{version}.gem"
 		File.open(path_file, "wb") do |file|
 		  file.write open("#{RUBYGEMS_URL}/gems/rails-#{version}.gem").read
 		end
